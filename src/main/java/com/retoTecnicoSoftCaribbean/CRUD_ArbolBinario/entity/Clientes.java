@@ -14,7 +14,7 @@ public class Clientes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
+    @Column(unique = true)
     private int cus_nmcliente;
     @Column(length = 120)
     private String cus_dsnombres;
@@ -22,13 +22,13 @@ public class Clientes {
     private String cus_dsapellidos;
     @Column(length = 120)
     private String cus_dsdireccion;
-    @Column(length = 120)
+    @Column(length = 120, unique = true)
     private String cus_dscorreo;
     @Column(length = 20)
     private String cus_cdtelefono;
     @Column(length = 20)
     private String cus_cdtelefonoalter;
-    @Column(length = 20)
+    @Column(length = 20, unique = true)
     private String cus_cdcelular;
     private int cus_nmcargo;
     @Column(length = 120)

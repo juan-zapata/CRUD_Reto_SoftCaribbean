@@ -1,6 +1,7 @@
 package com.retoTecnicoSoftCaribbean.CRUD_ArbolBinario.service;
 
 
+
 import com.retoTecnicoSoftCaribbean.CRUD_ArbolBinario.entity.Clientes;
 import com.retoTecnicoSoftCaribbean.CRUD_ArbolBinario.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ public class ClienteService{
 
     @Autowired
     ClienteRepository clienteRepository;
+
 
     public List<Clientes> list(){
         return clienteRepository.findAll();

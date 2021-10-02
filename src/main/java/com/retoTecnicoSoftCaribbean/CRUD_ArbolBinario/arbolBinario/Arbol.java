@@ -19,7 +19,7 @@ public class Arbol {
     }
 
     private void insertar(TadClientes<Clientes> raiz, Clientes c){
-        if(c.getId()<raiz.obtener().getId()){
+        if(c.getCus_nmcliente()<raiz.obtener().getCus_nmcliente()){
             if(raiz.izq()==null){
                 raiz.enIzq(new ClienteImplArbol<>(c));
             }else {
@@ -43,10 +43,10 @@ public class Arbol {
     }
 
     private TadClientes<Clientes> buscar(TadClientes<Clientes> raiz, int id){
-        if(id == raiz.obtener().getId()){
+        if(id == raiz.obtener().getCus_nmcliente()){
             return raiz;
         }else{
-            if(id<raiz.obtener().getId()){
+            if(id<raiz.obtener().getCus_nmcliente()){
                 if(raiz.izq()==null){
                     return null;
                 }else{
@@ -56,7 +56,7 @@ public class Arbol {
                 if(raiz.der()==null){
                     return null;
                 }else{
-                    return buscar(raiz.izq(), id);
+                    return buscar(raiz.der(), id);
                 }
             }
         }
@@ -64,14 +64,13 @@ public class Arbol {
 
     public void modificar(TadClientes<Clientes> c, int id, String nombre, String apellido, String correo, String direccion, String celular){
         if(buscarPorNmid(id) != null){
-            if(c.obtener().getId()==id){
+            if(c.obtener().getCus_nmcliente()==id){
                 c.obtener().setCus_dsnombres(nombre);
                 c.obtener().setCus_dsapellidos(apellido);
                 c.obtener().setCus_dscorreo(correo);
                 c.obtener().setCus_dsdireccion(direccion);
                 c.obtener().setCus_cdcelular(celular);
             }
-
         }
     }
 
@@ -82,10 +81,10 @@ public class Arbol {
     }
 
     private TadClientes<Clientes> eliminar(TadClientes<Clientes> raiz, int x){
-        if(raiz.obtener().getId() == x){
+        if(raiz.obtener().getCus_nmcliente() == x){
             return borrar(raiz, x);
         }else{
-            if(x<raiz.obtener().getId()){
+            if(x<raiz.obtener().getCus_nmcliente()){
                 raiz.enIzq(eliminar(raiz.izq(),x));
             }else{
                 raiz.enDer(eliminar(raiz.der(),x));
@@ -106,7 +105,7 @@ public class Arbol {
                 }else{
                     TadClientes<Clientes> may = numeroMayor(raiz.izq());
                     raiz.modificar(may.obtener());
-                    raiz.enIzq(eliminar(raiz.izq(),may.obtener().getId()));
+                    raiz.enIzq(eliminar(raiz.izq(),may.obtener().getCus_nmcliente()));
                     return raiz;
                 }
             }

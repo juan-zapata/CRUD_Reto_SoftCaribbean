@@ -2,13 +2,14 @@ package com.retoTecnicoSoftCaribbean.CRUD_ArbolBinario.dto;
 
 
 
-import javax.persistence.Column;
+
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.sql.Timestamp;
 import java.util.Calendar;
 
 public class ClienteDto {
+
 
     private int cus_nmcliente;
     private String cus_dsnombres;
